@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-brand-orange: #fd853a;
+  --color-brand-bg: #ffffff; 
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: #1e293b;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Keyframes for Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.05);
+  }
+}
+
+/* Utility Classes for Animation */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+@layer utilities {
+  .mask-gradient {
+    mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+  }
+  
+  /* Hide scrollbar for layout link rows */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
